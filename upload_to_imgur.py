@@ -58,13 +58,15 @@ def process_folder(folder_id, folder_name):
     print(f"\n📦 Processing Product: {folder_name}")
     
     # 1. Insert Product into Supabase
+    # 1. Insert Product into Supabase
     product_data = {
         "header": folder_name,
         "description": folder_name,
         "price": 12.00,
         "is_active": True,
         "category_id": 4,
-        "created_at": get_now()
+        "created_at": get_now(),  # Existing line
+        "updated_at": get_now()   # ADD THIS LINE
     }
     
     try:
