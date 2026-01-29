@@ -21,3 +21,5 @@ dist/
 *.xlsx
 *.xls
 *.json
+*.env
+.env.local
