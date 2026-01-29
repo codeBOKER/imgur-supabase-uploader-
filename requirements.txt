@@ -1,0 +1,7 @@
+requests
+openpyxl
+Pillow
+tinify
+supabase
+google-api-python-client
+google-auth
