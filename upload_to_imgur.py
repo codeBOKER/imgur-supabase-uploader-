@@ -19,11 +19,11 @@ from googleapiclient.http import MediaIoBaseDownload
 # Load environment variables from .env (if present)
 load_dotenv()
 
-SUPABASE_URL = os.getenv("SUPABASE_URL", "https://your-url.supabase.co")
-SUPABASE_KEY = os.getenv("SUPABASE_KEY", "your-service-role-key")
-IMGUR_CLIENT_ID = os.getenv("IMGUR_CLIENT_ID", "0c4e136418d4fd9")
-TINY_API_KEY = os.getenv("TINY_API_KEY", "1nwW4R5pCYDXgwTkStBkthqcWCKV66Ht")
-SERVICE_ACCOUNT_FILE = os.getenv("SERVICE_ACCOUNT_FILE", "service_account.json")  # The JSON file from Google Cloud
+SUPABASE_URL = os.getenv("SUPABASE_URL")
+SUPABASE_KEY = os.getenv("SUPABASE_KEY")
+IMGUR_CLIENT_ID = os.getenv("IMGUR_CLIENT_ID")
+TINY_API_KEY = os.getenv("TINY_API_KEY")
+SERVICE_ACCOUNT_FILE = os.getenv("SERVICE_ACCOUNT_FILE")  # The JSON file from Google Cloud
 
 # Initialize Clients
 tinify.key = TINY_API_KEY
