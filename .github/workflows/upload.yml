@@ -1,0 +1,33 @@
+name: Manual Product Upload
+on:
+  workflow_dispatch:
+    inputs:
+      folder_id:
+        description: 'Google Drive Folder ID'
+        required: true
+
+jobs:
+  upload_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          pip install google-api-python-client google-auth-httplib2 google-auth-oauthlib requests tinify supabase
+
+      - name: Create JSON file from Secret
+        run: echo '${{ secrets.GDRIVE_JSON }}' > service_account.json
+
+      - name: Run Upload Script
+        run: python upload_to_imgur.py ${{ github.event.inputs.folder_id }}
+        env:
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+          TINY_API_KEY: ${{ secrets.TINY_API_KEY }}
+          IMGUR_CLIENT_ID: ${{ secrets.IMGUR_CLIENT_ID }}
