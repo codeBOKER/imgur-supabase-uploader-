@@ -7,7 +7,7 @@ import tinify
 from pathlib import Path
 from supabase import create_client, Client
 from datetime import datetime, timezone
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 
 # Google API Libraries
 from google.oauth2 import service_account
@@ -17,13 +17,14 @@ from googleapiclient.http import MediaIoBaseDownload
 
 # --- CONFIGURATION ---
 # Load environment variables from .env (if present)
-load_dotenv()
+# load_dotenv()
 
-SUPABASE_URL = os.getenv("SUPABASE_URL")
+# KEEP THESE (They pull directly from GitHub's environment):
+SUPABASE_URL = "https://elwiqklpiusktqhgxplu.supabase.co"
 SUPABASE_KEY = os.getenv("SUPABASE_KEY")
 IMGUR_CLIENT_ID = os.getenv("IMGUR_CLIENT_ID")
 TINY_API_KEY = os.getenv("TINY_API_KEY")
-SERVICE_ACCOUNT_FILE = os.getenv("SERVICE_ACCOUNT_FILE")  # The JSON file from Google Cloud
+SERVICE_ACCOUNT_FILE = 'service_account.json'  # The JSON file from Google Cloud
 
 # Initialize Clients
 tinify.key = TINY_API_KEY
