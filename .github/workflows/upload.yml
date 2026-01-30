@@ -20,14 +20,15 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install google-api-python-client google-auth-httplib2 google-auth-oauthlib requests tinify supabase
+          pip install google-api-python-client google-auth-httplib2 google-auth-oauthlib requests tinify supabase cloudinary
 
       - name: Create JSON file from Secret
         run: echo '${{ secrets.GDRIVE_JSON }}' > service_account.json
 
       - name: Run Upload Script
-        run: python upload_to_imgur.py ${{ github.event.inputs.folder_id }}
+        run: python upload_to_cloudinary.py ${{ github.event.inputs.folder_id }}
         env:
           SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
-          TINY_API_KEY: ${{ secrets.TINY_API_KEY }}
-          IMGUR_CLIENT_ID: ${{ secrets.IMGUR_CLIENT_ID }}
+          CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
+          CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
+          CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
