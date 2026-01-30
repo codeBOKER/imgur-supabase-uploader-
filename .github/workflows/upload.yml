@@ -20,7 +20,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install google-api-python-client google-auth-httplib2 google-auth-oauthlib requests tinify supabase cloudinary
+          pip install Pillow google-api-python-client google-auth-httplib2 google-auth-oauthlib requests tinify supabase cloudinary
 
       - name: Create JSON file from Secret
         run: echo '${{ secrets.GDRIVE_JSON }}' > service_account.json
