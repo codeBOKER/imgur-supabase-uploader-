@@ -106,6 +106,7 @@ def process_folder(folder_id, folder_name):
             
             supabase.table("core_productcolor").insert({
                 "name": "default",
+                "color_code": "#FCFCFC",
                 "image": final_url,
                 "product_id": product_id,
                 "is_available": True
